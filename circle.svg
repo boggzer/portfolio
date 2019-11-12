@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="0 0 174 174" width="174" height="174">
+    <defs>
+        <path d="M172.78 87.61C172.78 135.29 134.07 174 86.39 174C38.71 174 0 135.29 0 87.61C0 39.93 38.71 1.22 86.39 1.22C134.07 1.22 172.78 39.93 172.78 87.61Z" id="lb4fCDfvR"/>
+    </defs>
+    <g>
+        <use xlink:href="#lb4fCDfvR" opacity="1" fill="#f9f096" fill-opacity="1"/>
+        <g>
+            <filter id="filterShadow" x="-15" y="-13.78" width="212.78" height="210.78" filterUnits="userSpaceOnUse" primitiveUnits="userSpaceOnUse">
+                <feFlood/>
+                <feComposite in2="SourceAlpha" operator="out"/>
+<!--<feOffset dx="10" dy="-8" result="afterOffset"/> <feFlood flood-color="#d7d3e6" flood-opacity="0"/>-->
+                <feComposite in2="afterOffset" operator="in"/>
+                <feComposite in2="SourceAlpha" operator="in"/>
+            </filter>
+            <defs>
+                <path d="M172.78 87.61C172.78 135.29 134.07 174 86.39 174C38.71 174 0 135.29 0 87.61C0 39.93 38.71 1.22 86.39 1.22C134.07 1.22 172.78 39.93 172.78 87.61Z" id="circle" fill="white" fill-opacity="1" filter="url(#filterShadow)"/>
+            </defs>
+            <text style="font-family:'Old Standard TT','Times',serif;" y="50%" x="40%">
+                <tspan>Skills</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

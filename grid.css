@@ -1,0 +1,49 @@
+.grid {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    gap: .6rem;
+    grid-template-rows: minmax(1rem, 5rem) repeat(4, minmax(1rem, 3rem)) 1fr minmax(1rem, 5rem);
+    grid-template-columns: minmax(1rem, 4rem) repeat(2, minmax(5rem, 1fr)) 2fr minmax(1rem, 4rem);
+
+    grid-template-areas: 
+    ". . . . ."
+    ". h2 h2 h2 ."
+    ". h3 h3 h3 ."
+    ". h4-1 h4-2 ul-3 ."
+    ". ul-1 ul-2 ul-3 ."
+    ". ul-1 ul-2 ul-3 ."
+    ". . . . .";
+}
+
+#resume > h2 {
+    grid-area: h2;
+
+    margin: .3rem;
+    justify-self: center;
+}
+
+#resume > div {
+    grid-area: h3;
+}
+
+#resume > h4:first-of-type {
+    grid-area: h4-1;
+}
+
+#resume > h4:last-of-type {
+    grid-area: h4-2;
+}
+
+#resume > ul:first-of-type {
+    grid-area: ul-1;
+}
+
+#resume > ul:nth-of-type(2n) {
+    grid-area: ul-2;
+}
+
+#resume > ul:last-of-type {
+    grid-area: ul-3;
+}

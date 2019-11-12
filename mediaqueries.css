@@ -3,13 +3,7 @@
         width: 94vw;
         margin: 0 3vw;
     }
-    .the-svg {
-        width: 80vw;
-    }
-}
-/* 
-@media all and (max-width: 30em) {
-    .the-svg {
+    #svg-con {
         width: 90vw;
     }
-} */
+}
