@@ -1,49 +1,57 @@
 .grid {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 
     display: grid;
-    gap: .6rem;
-    grid-template-rows: minmax(1rem, 5rem) repeat(4, minmax(1rem, 3rem)) 1fr minmax(1rem, 5rem);
-    grid-template-columns: minmax(1rem, 4rem) repeat(2, minmax(5rem, 1fr)) 2fr minmax(1rem, 4rem);
+    gap: .3rem;
+    grid-template-rows: minmax(.2rem, .3fr) repeat(2, minmax(5rem, .9fr)) minmax(2rem, .3fr) 6fr minmax(.2rem, .3fr);
 
-    grid-template-areas: 
-    ". . . . ."
-    ". h2 h2 h2 ."
-    ". h3 h3 h3 ."
-    ". h4-1 h4-2 ul-3 ."
-    ". ul-1 ul-2 ul-3 ."
-    ". ul-1 ul-2 ul-3 ."
-    ". . . . .";
+    /* grid-template-rows: minmax(1rem, 5rem) repeat(3, minmax(0.5fr, 1fr)) minmax(1fr, 3fr) minmax(5rem, 5rem); */
+    grid-template-columns: 1fr repeat(2, minmax(5rem, 2fr)) 1fr;
+
 }
 
 #resume > h2 {
-    grid-area: h2;
+    grid-area: 2 / 2 / 3 / 4;
 
-    margin: .3rem;
+    margin: .2rem;
     justify-self: center;
+    align-self: center;
 }
 
-#resume > div {
-    grid-area: h3;
+#resume > div:first-of-type {
+    grid-area: 3 / 2 / 3 / 4;
+
+    flex-wrap: wrap;
 }
 
-#resume > h4:first-of-type {
-    grid-area: h4-1;
+#resume-content1 > div:first-of-type {
+    justify-content: space-evenly;
+    align-items: center;
+
+    max-height: calc(100% / 10 * 1);
+    width: 100%;
+
 }
 
-#resume > h4:last-of-type {
-    grid-area: h4-2;
+#resume-content1 {
+    display: flex;
+    justify-content: space-evenly;
+    flex-flow: column wrap;
+    align-items: center;
+    grid-area: 4 / 2 / 6 / 4;
+    z-index: 1;
+    font-size: 1.4rem;
 }
 
-#resume > ul:first-of-type {
-    grid-area: ul-1;
+#resume-content2 {
+    grid-area: 4 / 2 / 6 / 4;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#resume > ul:nth-of-type(2n) {
-    grid-area: ul-2;
-}
-
-#resume > ul:last-of-type {
-    grid-area: ul-3;
+#resume-content2 > li {
+    padding: .5rem;
 }

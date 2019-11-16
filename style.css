@@ -10,16 +10,20 @@ html, body {
 
     font-family: 'Old Standard TT', 'Times', serif;
     font-weight: 400;
+    color: rgb(31, 27, 25);
     background: url(http://api.thumbr.it/whitenoise-361x370.png?background=f0d8d8ff&noise=9c9403&density=86&opacity=16) repeat;
 
     scroll-behavior: smooth;
 }
+/* 
+.viewport-border {
+    box-shadow: 0 0 0 5vw black inset;
+} */
 
 .scroll-parent {
     height: 100vh;
 
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow: auto;
     scroll-snap-type: y mandatory;
 }
 
@@ -29,7 +33,6 @@ html, body {
 }
 
 .frontpage {
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -44,11 +47,13 @@ html, body {
         }
 
 li {
+    font-size: 1.3rem;
     list-style: none;
+    padding: .2rem;
 }
 
 a {
-    color: rgb(0, 0, 0);
+    color: rgb(24, 23, 23);
     text-decoration: none;
 }
 
@@ -66,7 +71,9 @@ a {
     justify-content: center;
 }
 
-#resume > ul {
-    flex-direction: column;
-    flex-flow: column wrap;
+h5 {
+    font-family: 'Josefin-Sans', 'Helvetica', sans-serif;
+    font-size: 1.4rem;
+
+    margin: 0 .2rem 1rem .2rem;
 }

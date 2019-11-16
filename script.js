@@ -1,87 +1,87 @@
 window.onload = function () {
     gsap.registerPlugin(MotionPathPlugin);
-    
     headerAnimation();
-    hideShow();
     addEventListeners();
 }
 
 function addEventListeners() {
 
-    const resumeLinks = document.querySelectorAll('.resume-links')
-
+    const resumeLinks = document.querySelectorAll('.resume-links');
     resumeLinks.forEach(link => {
-        link.addEventListener('mouseover', linksEnterListener)
+        link.addEventListener('mouseover', mouseoverResumeLinksListener);
+        link.addEventListener('click', clickResumeLinksListener);
     });
-    resumeLinks.forEach(link => {
-        link.addEventListener('mouseout', linksLeaveListener)
-    });
+    document.body.addEventListener('wheel', scrollListener)
+    document.body.addEventListener('scroll', scrollListener)
+}
 
+/**
+ * Header animation using GSAP
+ */
+function headerAnimation() {
+    gsap.to('#svg-text', {
+        attr: {
+            x: 65,
+            textLength: 400
+        },
+        duration: 1.3,
+        repeatDelay: 0.6,
+        repeat: -1,
+        yoyo: true,
+        ease: 'power4.inOut',
+        motionPath: {
+            path: '#svg-path',
+            end: 0
+        }
+    });
+    gsap.to('#svg-textpath', {
+        attr: {
+            textLength: 390
+        },
+        yoyo: true
+    });
 }
 
 /**
  * 
  * @param {MouseEvent} event 
  */
-function linksEnterListener(event) {
+function mouseoverResumeLinksListener(event) {
     event.target.classList.add('shadow-border')
+    event.target.onmouseout = function () {
+        this.classList.toggle('shadow-border')
+    };
 }
-
-function linksLeaveListener(event) {
-    let target = event.target
-    $(target).fadeIn('slow', function () {
-        $(this).removeClass('shadow-border');
-    });
-}
-
 
 /**
- * Header animation using GSAP
+ * 
+ * @param {MouseEvent} event 
  */
-function headerAnimation() {
-    
-    // const duration = 2;
-    // const timeline = new TimelineMax({ repeat: -1, yoyo: true, repeatDelay: 0.05 });
-    let tween = gsap.timeline('#svg-textpath', { duration: 2 });
-    tween.to('#svg-textpath', { offsetX: '100', opacity: 0, duration: 1});
-    // gsap.to('#svg-textpath', duration, {
-    //     attr: { startOffset: '10%' },
-    //     ease: Back.easeIn
-    // });
-
-    // // FireFox
-    // timeline.from('#svg-text', duration, {
-    //     attr: { textLength: 400 }
-    // }, 0);
-    // // Chrome
-    // timeline.from('#svg-textpath', duration, {
-    //     attr: { textLength: 400 }
-    // }, 0);
+function clickResumeLinksListener(event) {
+    $('.target').not('#resume-content' + event.target.getAttribute('target')).hide();
+    $('#resume-content' + event.target.getAttribute('target')).fadeToggle('slow');
 }
 
-function randomNumber() {
-    setInterval(function () {
-        let degrees = 0;
-        degrees += Math.random() * 15;
-        return resumeLinksAnimation(degrees);
-    }, 250);
-}
+/**
+ * Make text content fade out
+ * @param {WheelEvent} event 
+ */
+function scrollListener(event) {
+    const element = document.querySelector('#resume')
+    const viewportPosition = element.getBoundingClientRect()
 
-function resumeLinksAnimation(rNum) {
-    const duration = 2;
-    const timeline = new TimelineMax({ repeat: -1, repeatDelay: 0.05 });
-    const linkSkills = $('.resume-skills');
-    const linkEducation = $('.resume-education');
+    const resumeContent = document.querySelectorAll('.target')
 
-    timeline.from(linkSkills, duration, { x: rNum, ease: 'power2' }, 0);
-    timeline.to(linkEducation, duration, { x: rNum * 2, ease: 'power2' }, 0);
-}
+    let maxScrollDown = -(event.view.innerHeight / 2)
+    let maxScrollUp = event.view.innerHeight / 2
 
-function scrollNext() {
-    const scrollHere = document.querySelector('nav');
-    scrollHere.scrollIntoView({ behavior: 'smooth', block: 'end' });
-}
-
-function hideShow() {
-    $('#resume > ul, #resume > h4').hide()
-}
+    if (viewportPosition.y > maxScrollDown &&
+        viewportPosition.y < maxScrollUp) {
+        for (let i = 0; i < resumeContent.length; i++) {
+            const resumeElement = resumeContent[i];
+            if ($(resumeElement).is(':visible')) {
+                $(resumeElement).fadeOut();
+            }
+        }
+    }
+};
