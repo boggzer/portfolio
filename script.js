@@ -8,11 +8,13 @@ function addEventListeners() {
 
     const resumeLinks = document.querySelectorAll('.resume-links');
     resumeLinks.forEach(link => {
-        link.addEventListener('mouseover', mouseoverResumeLinksListener);
+        link.addEventListener('mouseover', headingHoverListener);
         link.addEventListener('click', clickResumeLinksListener);
     });
-    document.body.addEventListener('wheel', scrollListener)
-    document.body.addEventListener('scroll', scrollListener)
+    document.querySelector('.portfolio-link').addEventListener('mouseover', headingHoverListener);
+    document.body.addEventListener('wheel', scrollListener);
+    document.body.addEventListener('scroll', scrollListener);
+    document.querySelector('#portfolio').addEventListener('click', portfolioLink);
 }
 
 /**
@@ -46,7 +48,7 @@ function headerAnimation() {
  * 
  * @param {MouseEvent} event 
  */
-function mouseoverResumeLinksListener(event) {
+function headingHoverListener(event) {
     event.target.classList.add('shadow-border')
     event.target.onmouseout = function () {
         this.classList.toggle('shadow-border')
@@ -58,8 +60,23 @@ function mouseoverResumeLinksListener(event) {
  * @param {MouseEvent} event 
  */
 function clickResumeLinksListener(event) {
-    $('.target').not('#resume-content' + event.target.getAttribute('target')).hide();
-    $('#resume-content' + event.target.getAttribute('target')).fadeToggle('slow');
+    let delay = 1000;
+    if ($('#resume-content1').css('display') == 'none' &&
+        $('#resume-content2').css('display') == 'none') {
+        $('.resume-links-con').stop().animate({ opacity: 0 }, 400);
+        setTimeout(() => {
+            $('.resume-links-con').stop().animate({ opacity: 100 }, 600)
+        }, delay);
+    }
+    else {
+        delay = 100;
+    }
+
+    setTimeout(function () {
+        $('.target').not('#resume-content' + event.target.getAttribute('target')).hide();
+        $('#resume-content' + event.target.getAttribute('target')).fadeIn(1000);
+
+    }, delay);
 }
 
 /**
@@ -85,3 +102,12 @@ function scrollListener(event) {
         }
     }
 };
+
+
+function portfolioLink() {
+    $('#portfolio.h2').stop().animate({ opacity: 0 }, 400);
+    setTimeout(() => {
+        $('#portfolio.h2').stop().animate({ opacity: 100 }, 600)
+    }, 1000);
+    $('figure').fadeIn(1000);
+}
