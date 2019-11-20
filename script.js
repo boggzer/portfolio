@@ -1,7 +1,10 @@
 window.addEventListener('load', headerAnimation);
 window.addEventListener('load', addEventListeners);
+window.addEventListener('resize', resized);
 
 function addEventListeners() {
+    // const small = window.matchMedia('(min-width: 320px)')
+
     const resumeLinks = document.querySelectorAll('.resume-links');
     for (const link of resumeLinks) {
         link.addEventListener('mouseover', headingHoverListener);
@@ -83,12 +86,13 @@ function scrollListener(event) {
     let maxScrollDown = -(event.view.innerHeight / 2)
     let maxScrollUp = event.view.innerHeight / 2
     const elements = document.querySelectorAll('.content')
-
-    for (const element of elements) {
-        let viewportPosition = element.getBoundingClientRect();
-        if ($(element).is(':visible')) {
-            if (viewportPosition.y < maxScrollDown || viewportPosition.y > maxScrollUp) {
-                $(element).fadeOut(1000);
+    if ('321' <= window.innerWidth) {
+        for (const element of elements) {
+            let viewportPosition = element.getBoundingClientRect();
+            if ($(element).is(':visible')) {
+                if (viewportPosition.y < maxScrollDown || viewportPosition.y > maxScrollUp) {
+                    $(element).fadeOut(1000);
+                }
             }
         }
     }
@@ -96,8 +100,27 @@ function scrollListener(event) {
 
 /** Fade in portfolio content and keep portfolio title centered. */
 function portfolioLinkListener() {
-    $('#portfolio .content').fadeIn(1000);
-    const portfolioTitle = document.querySelector('.portfolio-link')
+    const portfolioTitle = document.querySelector('.portfolio-link');
 
-    portfolioTitle.scrollIntoView({ block: 'center', inline: 'center' });
+    if ('321' <= window.innerWidth) {
+        console.log('hi');
+        $('#portfolio .content').fadeIn(1000);
+        portfolioTitle.scrollIntoView({ block: 'center', inline: 'center' });
+    }
+    else {
+        portfolioTitle.scrollIntoView({ inline: 'center' });
+        console.log('hey');
+    }
+}
+
+// function mediaQueryListener() {
+
+// }
+
+function resized() {
+    if (window.innerWidth <= '320') {
+        console.log('hey');
+        
+        $('#portfolio > .content').show();
+    }
 }

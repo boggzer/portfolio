@@ -16,6 +16,11 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    display: grid;
+    place-items: center;
+}
+
 .scroll-parent {
     height: 100vh;
     width: 100%;
@@ -29,9 +34,14 @@ html {
 }
 
 /* ----- Welcome page ----- */
-    #svg-con {
-        width: 60vw;
-    }
+
+header {
+    width: 94vw;
+    margin: 0 3vw;
+}
+#svg-con {
+    width: 90vw;
+}
 
         text {
             font-size: 1.8rem;
