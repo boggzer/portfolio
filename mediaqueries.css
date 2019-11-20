@@ -6,4 +6,7 @@
     #svg-con {
         width: 90vw;
     }
+    .scroll-child {
+        scroll-snap-align: none;
+    }
 }

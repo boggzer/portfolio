@@ -1,25 +1,20 @@
-window.onload = function () {
-    gsap.registerPlugin(MotionPathPlugin);
-    headerAnimation();
-    addEventListeners();
-}
+window.addEventListener('load', headerAnimation);
+window.addEventListener('load', addEventListeners);
 
 function addEventListeners() {
-
     const resumeLinks = document.querySelectorAll('.resume-links');
-    resumeLinks.forEach(link => {
+    for (const link of resumeLinks) {
         link.addEventListener('mouseover', headingHoverListener);
         link.addEventListener('click', clickResumeLinksListener);
-    });
-    document.querySelector('.portfolio-link').addEventListener('mouseover', headingHoverListener);
-    document.body.addEventListener('wheel', scrollListener);
+    }
     document.body.addEventListener('scroll', scrollListener);
-    document.querySelector('#portfolio').addEventListener('click', portfolioLink);
+    document.body.addEventListener('wheel', scrollListener);
+
+    document.querySelector('.portfolio-link').addEventListener('mouseover', headingHoverListener);
+    document.querySelector('.portfolio-link').addEventListener('click', portfolioLinkListener);
 }
 
-/**
- * Header animation using GSAP
- */
+/** Header animation using GSAP */
 function headerAnimation() {
     gsap.to('#svg-text', {
         attr: {
@@ -45,7 +40,7 @@ function headerAnimation() {
 }
 
 /**
- * 
+ * Add and toggle class to portfolio link and resumé links on hover.
  * @param {MouseEvent} event 
  */
 function headingHoverListener(event) {
@@ -56,11 +51,12 @@ function headingHoverListener(event) {
 }
 
 /**
- * 
- * @param {MouseEvent} event 
+ * Fade in resume content and animate opacity on resume title links.
+ * @param {MouseEvent} event click event
  */
 function clickResumeLinksListener(event) {
     let delay = 1000;
+
     if ($('#resume-content1').css('display') == 'none' &&
         $('#resume-content2').css('display') == 'none') {
         $('.resume-links-con').stop().animate({ opacity: 0 }, 400);
@@ -80,34 +76,28 @@ function clickResumeLinksListener(event) {
 }
 
 /**
- * Make text content fade out
+ * Make visible content fade out on scroll condition.
  * @param {WheelEvent} event 
  */
 function scrollListener(event) {
-    const element = document.querySelector('#resume')
-    const viewportPosition = element.getBoundingClientRect()
-
-    const resumeContent = document.querySelectorAll('.target')
-
     let maxScrollDown = -(event.view.innerHeight / 2)
     let maxScrollUp = event.view.innerHeight / 2
+    const elements = document.querySelectorAll('.content')
 
-    if (viewportPosition.y > maxScrollDown &&
-        viewportPosition.y < maxScrollUp) {
-        for (let i = 0; i < resumeContent.length; i++) {
-            const resumeElement = resumeContent[i];
-            if ($(resumeElement).is(':visible')) {
-                $(resumeElement).fadeOut();
+    for (const element of elements) {
+        let viewportPosition = element.getBoundingClientRect();
+        if ($(element).is(':visible')) {
+            if (viewportPosition.y < maxScrollDown || viewportPosition.y > maxScrollUp) {
+                $(element).fadeOut(1000);
             }
         }
     }
 };
 
+/** Fade in portfolio content and keep portfolio title centered. */
+function portfolioLinkListener() {
+    $('#portfolio .content').fadeIn(1000);
+    const portfolioTitle = document.querySelector('.portfolio-link')
 
-function portfolioLink() {
-    $('#portfolio.h2').stop().animate({ opacity: 0 }, 400);
-    setTimeout(() => {
-        $('#portfolio.h2').stop().animate({ opacity: 100 }, 600)
-    }, 1000);
-    $('figure').fadeIn(1000);
+    portfolioTitle.scrollIntoView({ block: 'center', inline: 'center' });
 }

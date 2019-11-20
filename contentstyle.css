@@ -1,66 +1,96 @@
-/* ----- Resumé page ----- */
-#resume {
-    align-items: center;
-    justify-content: center;
+.h2 {
+    font-family: 'Josefin-Sans', 'Helvetica', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    /* max-height: 5rem; */
 }
+
+.h2:last-of-type {
+    justify-content: space-evenly;
+}
+
+h5 {
+    font-family: 'Josefin-Sans', 'Helvetica', sans-serif;
+    font-size: 1.4rem;
+
+    margin: 0 .2rem 1rem .2rem;
+}
+
+/* ----- Resumé page ----- */
 
 /* Container for H2 and H3 in #resume */
 .resume-links-con {
-    width: 60%;
+    margin: 0 2rem;
+
+    justify-content: space-evenly;
     
     transition: .2s ease-in-out box-shadow,
     .2s ease-in-out all;
 }
+    #resume-content1 {
+        max-width: 40rem;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        overflow: hidden;
+        justify-content: center;
+    }
 
-#resume > h2 {
-    margin: 1rem auto;
-}
+    #resume-content2 {
+        width: calc(100% / 3);
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 
-.h3 {
-    font-family: 'Josefin-Sans', 'Helvetica', sans-serif;
-    font-size: 2rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .1rem;
+    #resume-content1 > ul {
+        flex: 1 0 0;
+        padding: .5rem; 
+        margin-bottom: 2rem;
+    }
 
-    justify-content: space-evenly;
-}
-
-#resume-content1 > ul {
-    flex: 1 0 calc(100% / 3);
-
-    max-height: calc(100% / 10 * 9);
-
-    padding: .5rem;
-
-    margin-bottom: 4rem;
-
-}
-
-#resume-content2 > li {
-    padding: .5rem;
-}
-
+/* ----- Portfolio page ----- */
 #portfolio {
     white-space: nowrap;
     overflow-x: scroll;
-}
+    scroll-snap-type: x proximity;
 
-#portfolio > div {
-    /* align-items: center; */
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
+    height: 100vh;
 }
+    /* Portfolio heading text/links */
+    #portfolio > div:nth-of-type(2n) {
+        margin-left: 5rem;
+        margin-right: 5rem;
+        width: 100%;
+    }
 
-#portfolio > figure {
-    margin: 10vh 1rem;
-    align-items: center;
-    padding: .5rem;
-    background-color: whitesmoke;
-}
+    #portfolio h2 {
+        scroll-snap-align: center;
+    }
 
-figure > img {
-    margin: .5rem;
-    height: calc(100% - 1rem);
-}
+    i.material-icons {
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
+
+    /* Portfolio main content */
+    figure {
+        width: unset;
+        background-color: rgb(238, 235, 230);
+        border-radius: .25rem .25rem .25rem .25rem;
+
+        height: 90vh;
+        padding: .5rem;
+        margin: 10vh 1rem;
+    }
+
+    figure img {
+        margin: .5rem;
+        height: calc(100% - 1rem);
+        box-shadow: 0px 0px 1rem -.8rem black;
+    }
+
+    figcaption {
+        text-align: right;
+        margin: .5rem;
+    }

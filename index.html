@@ -8,13 +8,14 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="./sharedclasses.css">
-    <link rel="stylesheet" href="./contentstyle.css">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./contentstyle.css">
     <link rel="stylesheet" href="./mediaqueries.css">
 
-    <!-- Fonts -->
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Old+Standard+TT:400,700&display=swap">
     <link rel="stylesheet" href="https://use.typekit.net/wpw3dev.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.4.1.js"
@@ -32,7 +33,7 @@
 
 <body class="viewport-border" onscroll="scrollListener()">
     <div class="scroll-parent">
-        <div class="frontpage scroll-child flex column fullscreen">
+        <div class="frontpage fullscreen scroll-child flex column justify align">
             <header>
                 <svg id="svg-con" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 101">
                     <defs>
@@ -66,79 +67,101 @@
 
         <main>
 
-            <section id="portfolio" class="flex fullscreen scroll-child">
-                <!--    Scroll-left = IT
-                        Scroll-right = art -->
-                        <div class="flex row wrap h3">
-                            <h3 class="portfolio-link"><a href="#">Portfolio</a></h3>
-                        </div>
-                <figure class="flex row" style="display: none;">
-                    <figcaption>"Ta på mig" (Put your hands on me),<br>2019, stoneware</figcaption>
-                    <img src="./images/ta-pa-mig-1.webp" title="Ta på mig (Put your hands on me)" alt="Ceramic sculpture with a mossy, bark-like texture.">
+            <section id="portfolio" class="flex row align fullscreen scroll-child">
+                <div class="content" style="display: none;">
+                    <figure class="flex row align">
+                        <img src="./images/anticlimax-1.webp" alt="">
 
-                    <img src="./images/ta-pa-mig-2.webp" title="Ta på mig (Put your hands on me)" alt="Close-up of ceramic sculpture with a mossy, bark-like texture.">
+                        <img src="./images/anticlimax-2.webp" alt="">
+                        <figcaption>Anti-Climax<br>A (very) short<wbr> multiple-choice <wbr>game.</figcaption>
+                    </figure>
+                </div>
 
-                    <img src="./images/ta-pa-mig-3.webp" title="Ta på mig (Put your hands on me)" alt="Ceramic sculpture with a mossy, bark-like texture.">
-                </figure>
-                <figure class="flex row" style="display: none;">
-                    <img src="./images/madonna.webp" title="Madonna" alt="Analogue photo of a nude male, placed in a pyramidal, figural composition.">
-                </figure>
+                <div class="flex column h2 justify align">
+                    <h2 class="portfolio-link cursor-pointer justify"><a>Portfolio</a></h2>
+                    <h5 class="flex align">
+                        <i class="material-icons">keyboard_arrow_left</i>
+                        IT & Art
+                        <i class="material-icons">keyboard_arrow_right</i>
+
+                    </h5>
+                </div>
+
+                <div class="content flex row" style="display: none;">
+                    <figure class="flex row align">
+                        <figcaption>"Ta på mig"<br>(Put your hands on me)<br>2018<br>stoneware</figcaption>
+                        <img src="./images/ta-pa-mig-1.webp" title="Ta på mig (Put your hands on me)"
+                            alt="Ceramic sculpture with a mossy, bark-like texture.">
+                        <img src="./images/ta-pa-mig-2.webp" title="Ta på mig (Put your hands on me)"
+                            alt="Close-up of ceramic sculpture with a mossy, bark-like texture.">
+                        <img src="./images/ta-pa-mig-3.webp" title="Ta på mig (Put your hands on me)"
+                            alt="Ceramic sculpture with a mossy, bark-like texture.">
+                    </figure>
+                    <figure class="flex row align">
+                        <figcaption>"Madonna"<br>2019<br>silver gelatin print</figcaption>
+                        <img src="./images/madonna.webp" title="Madonna"
+                            alt="Analogue photo of a nude male, placed in a pyramidal, figural composition.">
+                    </figure>
+                    <figure class="flex row align">
+                        <figcaption>"Milla"<br>2018<br>silver gelatin print</figcaption>
+                        <img src="./images/milla.webp" title="Milla"
+                            alt="Woman laying face down on a bed with a plant covering the head.">
+                    </figure>
+                </div>
             </section>
 
-            <section id="resume" class="fullscreen flex column scroll-child">
-                <div class="resume-links-con column flex">
-                    <h2>Resumé</h2>
-                    <div class="flex row wrap h3">
-                        <h3 class="resume-links cursor-pointer"><a target="1">Skills</a></h3>
-                        <h3 class="resume-links cursor-pointer"><a target="2">Education</a></h3>
+            <section id="resume" class="fullscreen flex column scroll-child justify align">
+                <div class="resume-links-con flex row align wrap h2">
+                    <h2 class="resume-links cursor-pointer"><a target="1">Skills</a></h2>
+                    &nbsp;&&nbsp;
+                    <h2 class="resume-links cursor-pointer"><a target="2">Education</a></h2>
+                </div>
+                    <div id="resume-content1" class="content target fullscreen flex column wrap" style="display: none;">
+                        <ul>
+                            <li>
+                                <h5>Languages</h5>
+                            </li>
+                            <li>Javascript</li>
+                            <li>jQuery</li>
+                            <li>HTML5/CSS3</li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <h5>OS</h5>
+                            </li>
+                            <li>Mac</li>
+                            <li>Windows</li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <h5>Software</h5>
+                            </li>
+                            <li>Illustrator</li>
+                            <li>InDesign</li>
+                            <li>Lightroom</li>
+                            <li>Photoshop</li>
+                            <li>VS Code</li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <h5>Art mediums</h5>
+                            </li>
+                            <li>Acrylics</li>
+                            <li>Ceramics (stoneware)</li>
+                            <li>Oil painting</li>
+                            <li>Digital painting</li>
+                        </ul>
                     </div>
-                </div>
-                <div id="resume-content1" class="target fullscreen flex column wrap" style="display: none;">
-                    <ul>
-                        <li>
-                            <h5>Languages</h5>
-                        </li>
-                        <li>Javascript</li>
-                        <li>jQuery</li>
-                        <li>HTML5/CSS3</li>
+                    <ul id="resume-content2" class="content target fullscreen flex column wrap" style="display: none;">
+                        <li>2019-, Frontendutvecklare, Medieinstitutet, Göteborg</li>
+                        <li>2017-2019, Konst och hantverk, Ågesta fhsk, Farsta</li>
+                        <li>2013-2016, Konst och design, Kulturama, Stockholm</li>
                     </ul>
-                    <ul>
-                        <li>
-                            <h5>OS</h5>
-                        </li>
-                        <li>Mac</li>
-                        <li>Windows</li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <h5>Software</h5>
-                        </li>
-                        <li>Illustrator</li>
-                        <li>InDesign</li>
-                        <li>Lightroom</li>
-                        <li>Photoshop</li>
-                        <li>VS Code</li>
-                    </ul>
-                    <ul>
-                        <li>
-                            <h5>Art mediums</h5>
-                        </li>
-                        <li>Acrylics</li>
-                        <li>Ceramics (stoneware)</li>
-                        <li>Oil painting</li>
-                        <li>Digital painting</li>
-                    </ul>
-                </div>
-                <ul id="resume-content2" class="target fullscreen flex column wrap" style="display: none;">
-                    <li>2019-, Frontendutvecklare, Medieinstitutet, Göteborg</li>
-                    <li>2017-2019, Konst och hantverk, Ågesta fhsk, Farsta</li>
-                    <li>2013-2016, Konst och design, Kulturama, Stockholm</li>
-                </ul>
             </section>
         </main>
 
-        <footer id="contact" class="flex">
-            <ul class="flex column">
+        <footer id="contact" class="flex justify align">
+            <ul class="flex column justify ">
                 <li>jonathan.bogg@gmail.com</li>
                 <li>github.com/boggzer</li>
             </ul>
