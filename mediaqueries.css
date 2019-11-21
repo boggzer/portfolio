@@ -1,12 +1,54 @@
-@media all and (min-width: 320px) {
+@media all and (min-width: 321px) {
     #svg-con {
         width: 90vw;
     }
     .scroll-child {
         scroll-snap-align: center;
     }
-    h2 {
-        font-size: calc(8vw + 1.16rem);
+    .h2 {
+        font-size: calc(4vw + 1rem);
+    }
+
+    #resume-content1 > ul {
+        min-width: calc(5vw + 7rem);
+    }
+
+    li {
+        font-size: calc(1vw + 1rem);
+    }
+
+    /* ----- Portfolio page ----- */
+    #portfolio {
+        margin-right: 5rem;
+        overflow-x: scroll;
+        scroll-snap-type: x proximity;
+    }
+    
+    #portfolio .h2 {
+        margin: 0 auto;
+        scroll-snap-align: center;
+    }
+
+    #portfolio .content {
+        height: 90vh;
+    }
+    
+    figure {
+        margin: 0 1vw;
+        width: fit-content;
+        padding: .25rem;
+        justify-content: space-between;
+    }
+    
+    figure > img {
+        width: auto;
+        height: auto;
+        margin: .5rem;
+        max-height: calc(85vh - 1rem);
+    }
+    
+    figcaption {
+        max-height: 5rem;
     }
 
 }
@@ -22,47 +64,8 @@
         font-weight: 700;
     }
 
-    /* ----- Portfolio page ----- */
-    #portfolio {
-        white-space: nowrap;
-        overflow-x: scroll;
-        scroll-snap-type: x proximity;
-
-        height: 100vh;
+    figure {
+        background-color: rgb(238, 235, 230);
+        border-radius: .25rem .25rem .25rem .25rem;
     }
-        /* Portfolio heading text/links */
-        #portfolio > div:nth-of-type(2n) {
-            width: 100%;
-        }
-
-        #portfolio h2 {
-            scroll-snap-align: center;
-        }
-
-        i.material-icons {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        /* Portfolio main content */
-        figure {
-            width: unset;
-            background-color: rgb(238, 235, 230);
-            border-radius: .25rem .25rem .25rem .25rem;
-
-            height: 90vh;
-            padding: .5rem;
-            margin: 10vh 1rem;
-        }
-
-        figure img {
-            margin: .5rem;
-            height: calc(100% - 1rem);
-            box-shadow: 0px 0px 1rem -.8rem black;
-        }
-
-        figcaption {
-            text-align: right;
-            margin: .5rem;
-        }
 }

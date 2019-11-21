@@ -34,7 +34,7 @@
 <body class="viewport-border" onscroll="scrollListener()">
     <div class="scroll-parent">
         <div class="frontpage fullscreen scroll-child flex column justify align">
-            <header>
+            <header class="flex">
                 <svg id="svg-con" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 101">
                     <defs>
                         <path id="svg-path" d="M0 11h152c32 0 63 13 85 35l11 10c17 17 41 27 65 27h120" stroke="#fff"
@@ -68,13 +68,13 @@
         <main>
 
             <section id="portfolio" class="flex row align fullscreen scroll-child">
-                
-                <div class="content" style="display: none;">
-                    <figure class="flex row align">
-                        <img src="./images/anticlimax-1.webp" alt="">
 
-                        <img src="./images/anticlimax-2.webp" alt="">
+                <div class="content flex row" style="display: none;">
+                    <figure class="flex row align">
                         <figcaption>Anti-Climax<br>A (very) short<wbr> multiple-choice <wbr>game.</figcaption>
+                            <img src="./images/anticlimax-1.webp" alt="">
+
+                            <img src="./images/anticlimax-2.webp" alt="">
                     </figure>
                 </div>
                 <div class="flex column h2 justify align">
@@ -89,7 +89,8 @@
 
                 <div class="content flex row" style="display: none;">
                     <figure class="flex row align">
-                        <figcaption class="col-reverse" style="order: 2;">"Ta på mig"<br>(Put your hands on me)<br>2018<br>stoneware</figcaption>
+                        <figcaption class="col-reverse" style="order: 2;">"Ta på mig"<br>(Put your hands on
+                            me)<br>2018<br>stoneware</figcaption>
                         <img src="./images/ta-pa-mig-1.webp" title="Ta på mig (Put your hands on me)"
                             alt="Ceramic sculpture with a mossy, bark-like texture.">
                         <img src="./images/ta-pa-mig-2.webp" title="Ta på mig (Put your hands on me)"
@@ -115,54 +116,58 @@
                     <h2 class="resume-links cursor-pointer"><a target="1">Skills</a></h2>&nbsp;&&nbsp;
                     <h2 class="resume-links cursor-pointer"><a target="2">Education</a></h2>
                 </div>
-                    <div id="resume-content1" class="content target fullscreen flex column wrap" style="display: none;">
-                        <ul>
-                            <li>
-                                <h5>Languages</h5>
-                            </li>
-                            <li>Javascript</li>
-                            <li>jQuery</li>
-                            <li>HTML5/CSS3</li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <h5>OS</h5>
-                            </li>
-                            <li>Mac</li>
-                            <li>Windows</li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <h5>Software</h5>
-                            </li>
-                            <li>Illustrator</li>
-                            <li>InDesign</li>
-                            <li>Lightroom</li>
-                            <li>Photoshop</li>
-                            <li>VS Code</li>
-                        </ul>
-                        <ul>
-                            <li>
-                                <h5>Art mediums</h5>
-                            </li>
-                            <li>Acrylics</li>
-                            <li>Ceramics (stoneware)</li>
-                            <li>Oil painting</li>
-                            <li>Digital painting</li>
-                        </ul>
-                    </div>
-                    <ul id="resume-content2" class="content target fullscreen flex column wrap" style="display: none;">
-                        <li>2019-, Frontendutvecklare, Medieinstitutet, Göteborg</li>
-                        <li>2017-2019, Konst och hantverk, Ågesta fhsk, Farsta</li>
-                        <li>2013-2016, Konst och design, Kulturama, Stockholm</li>
+                <div id="resume-content1" class="content target fullscreen flex column wrap" style="display: none;">
+                    <ul>
+                        <li>
+                            <h5>Languages</h5>
+                        </li>
+                        <li>Javascript</li>
+                        <li>jQuery</li>
+                        <li>HTML5/CSS3</li>
                     </ul>
+                    <ul>
+                        <li>
+                            <h5>OS</h5>
+                        </li>
+                        <li>Mac</li>
+                        <li>Windows</li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <h5>Software</h5>
+                        </li>
+                        <li>Illustrator</li>
+                        <li>InDesign</li>
+                        <li>Lightroom</li>
+                        <li>Photoshop</li>
+                        <li>VS Code</li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <h5>Art mediums</h5>
+                        </li>
+                        <li>Acrylics</li>
+                        <li>Ceramics (stoneware)</li>
+                        <li>Oil painting</li>
+                        <li>Digital painting</li>
+                    </ul>
+                </div>
+                <ul id="resume-content2" class="content target fullscreen flex column wrap" style="display: none;">
+                    <li>2019-, Frontendutvecklare, Medieinstitutet, Göteborg</li>
+                    <li>2017-2019, Konst och hantverk, Ågesta fhsk, Farsta</li>
+                    <li>2013-2016, Konst och design, Kulturama, Stockholm</li>
+                </ul>
             </section>
         </main>
 
         <footer id="contact" class="flex justify align">
             <ul class="flex column justify ">
-                <li>jonathan.bogg@gmail.com</li>
-                <li>github.com/boggzer</li>
+                <li>
+                    <a href="mailto:jonathan.bogg@gmail.com">jonathan.bogg@gmail.com</a>
+                </li>
+                <li>
+                    <a href="http://https://github.com/boggzer?tab=repositories">github.com/boggzer</a>
+                </li>
             </ul>
         </footer>
     </div>

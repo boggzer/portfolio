@@ -1,15 +1,23 @@
-window.addEventListener('load', headerAnimation);
-window.addEventListener('load', addEventListeners);
-window.addEventListener('resize', resized);
+window.addEventListener('load', function () {
+    headerAnimation();
+    addEventListeners();
+    checkViewportSize();
+});
 
 function addEventListeners() {
-    // const small = window.matchMedia('(min-width: 320px)')
+    window.addEventListener('resize', checkViewportSize);
 
     const resumeLinks = document.querySelectorAll('.resume-links');
     for (const link of resumeLinks) {
         link.addEventListener('mouseover', headingHoverListener);
         link.addEventListener('click', clickResumeLinksListener);
     }
+    const contactLinks = document.querySelectorAll('#contact a');
+    for (const link of contactLinks) {
+        link.addEventListener('mouseover', headingHoverListener);
+        link.addEventListener('click', clickResumeLinksListener);
+    }
+    
     document.body.addEventListener('scroll', scrollListener);
     document.body.addEventListener('wheel', scrollListener);
 
@@ -85,7 +93,8 @@ function clickResumeLinksListener(event) {
 function scrollListener(event) {
     let maxScrollDown = -(event.view.innerHeight / 2)
     let maxScrollUp = event.view.innerHeight / 2
-    const elements = document.querySelectorAll('.content')
+    const elements = document.querySelectorAll('.content');
+
     if ('321' <= window.innerWidth) {
         for (const element of elements) {
             let viewportPosition = element.getBoundingClientRect();
@@ -96,7 +105,7 @@ function scrollListener(event) {
             }
         }
     }
-};
+}
 
 /** Fade in portfolio content and keep portfolio title centered. */
 function portfolioLinkListener() {
@@ -107,20 +116,22 @@ function portfolioLinkListener() {
         $('#portfolio .content').fadeIn(1000);
         portfolioTitle.scrollIntoView({ block: 'center', inline: 'center' });
     }
-    else {
-        portfolioTitle.scrollIntoView({ inline: 'center' });
-        console.log('hey');
-    }
 }
 
-// function mediaQueryListener() {
+function checkViewportSize() {
 
-// }
-
-function resized() {
-    if (window.innerWidth <= '320') {
-        console.log('hey');
-        
-        $('#portfolio > .content').show();
+    if (window.innerWidth <= 320) {
+        $('#portfolio > .content').show()
     }
+
+    resizePortfolioAndScrollBy();
 }
+
+function resizePortfolioAndScrollBy() {
+    const portfolioLinkElement = document.querySelector('#portfolio div.h2')
+    const portfolioContainer = document.querySelector('#portfolio')
+    let viewportPosition = portfolioLinkElement.getBoundingClientRect()
+
+    portfolioContainer.scrollBy(viewportPosition.x, 0);
+}
+
