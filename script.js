@@ -17,7 +17,7 @@ function addEventListeners() {
         link.addEventListener('mouseover', headingHoverListener);
         link.addEventListener('click', clickResumeLinksListener);
     }
-    
+
     document.body.addEventListener('scroll', scrollListener);
     document.body.addEventListener('wheel', scrollListener);
 
@@ -68,8 +68,8 @@ function headingHoverListener(event) {
 function clickResumeLinksListener(event) {
     let delay = 1000;
 
-    if ($('#resume-content1').css('display') == 'none' &&
-        $('#resume-content2').css('display') == 'none') {
+    if ($('.resume-content1').css('display') == 'none' &&
+        $('.resume-content2').css('display') == 'none') {
         $('.resume-links-con').stop().animate({ opacity: 0 }, 400);
         setTimeout(() => {
             $('.resume-links-con').stop().animate({ opacity: 100 }, 600)
@@ -80,8 +80,8 @@ function clickResumeLinksListener(event) {
     }
 
     setTimeout(function () {
-        $('.target').not('#resume-content' + event.target.getAttribute('target')).hide();
-        $('#resume-content' + event.target.getAttribute('target')).fadeIn(1000);
+        $('.target').not('.resume-content' + event.target.getAttribute('target')).hide();
+        $('.resume-content' + event.target.getAttribute('target')).fadeIn(1000);
 
     }, delay);
 }
@@ -118,15 +118,16 @@ function portfolioLinkListener() {
     }
 }
 
+/* Always scroll portfolio title into view on viewport resize
+    Always show portfolio content on mobile view */
 function checkViewportSize() {
-
     if (window.innerWidth <= 320) {
         $('#portfolio > .content').show()
     }
 
     resizePortfolioAndScrollBy();
 }
-
+/* Resize portfolio page and scroll title to horizontal center of parent */
 function resizePortfolioAndScrollBy() {
     const portfolioLinkElement = document.querySelector('#portfolio div.h2')
     const portfolioContainer = document.querySelector('#portfolio')
