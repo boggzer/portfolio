@@ -4,9 +4,9 @@
     box-sizing: border-box;
 }
 
-html {
+html, body {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
 
     font-family: 'Old Standard TT', 'Times', serif;
     font-weight: 400;
@@ -14,12 +14,7 @@ html {
     background: url(http://api.thumbr.it/whitenoise-361x370.png?background=f0d8d8ff&noise=9c9403&density=86&opacity=16) repeat;
 
     scroll-behavior: smooth;
-}
-
-body {
-    display: grid;
-    place-items: center;
-}
+} 
 
 .scroll-parent {
     height: 100vh;
@@ -29,15 +24,24 @@ body {
 }
 
 .scroll-child {
+    -webkit-box-shadow: inset 0px 0px 22px -12px rgba(97,9,6,1);
+    -moz-box-shadow: inset 0px 0px 22px -12px rgba(97,9,6,1);
+    box-shadow: inset 0px 0px 22px -12px rgba(97,9,6,1);
+    
     height: 100vh;
     scroll-snap-align: start;
 }
+
+.scroll-child:last-child {
+    -webkit-box-shadow: inset 0px 38px 22px -51px rgba(97,9,6,1);
+    -moz-box-shadow: inset 0px 38px 22px -51px rgba(97,9,6,1);
+    box-shadow: inset 0px 38px 22px -51px rgba(97,9,6,1);}
 
 /* ----- Welcome page ----- */
 
 header {
     width: 94vw;
-    margin: 0 3vw;
+    justify-content: center;
 }
 #svg-con {
     width: 90vw;
@@ -49,15 +53,14 @@ header {
         }
 
 li {
-    font-size: 1.3rem;
+    font-size: 1rem;
     list-style: none;
-    padding: .2rem;
 }
 
 a {
     color: rgb(24, 23, 23);
     text-decoration: none;
-cursor: pointer;
+    cursor: pointer;
 }
 
 #contact {

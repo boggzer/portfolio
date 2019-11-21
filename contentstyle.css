@@ -1,6 +1,6 @@
 .h2 {
     font-family: 'Josefin-Sans', 'Helvetica', sans-serif;
-    font-size: 2.5rem;
+    font-size: calc(1vw + 1.2rem);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: .1rem;
@@ -12,9 +12,7 @@
 
 h5 {
     font-family: 'Josefin-Sans', 'Helvetica', sans-serif;
-    font-size: 1.4rem;
-
-    margin: 0 .2rem 1rem .2rem;
+    font-size: 1.2rem;
 }
 
 /* ----- Resumé page ----- */
@@ -29,42 +27,56 @@ h5 {
     .2s ease-in-out all;
 }
     #resume-content1 {
-        max-width: 40rem;
+        max-width: calc(100% / 4 * 3);
         margin: 0 auto;
         flex-wrap: wrap;
         overflow: hidden;
+        justify-content: space-evenly
+    }
+
+    #resume {
         justify-content: center;
     }
 
     #resume-content2 {
-        width: calc(100% / 3);
-        justify-content: center;
+        width: calc(100% / 3 * 2);
+        align-items: center;
+        justify-content: space-evenly;
         flex-wrap: wrap;
     }
 
     #resume-content1 > ul {
         flex: 1 0 0;
-        padding: .5rem; 
+        flex-wrap: wrap;
+        min-width: 7rem;
+        max-width: calc(100% / 6);
         margin-bottom: 2rem;
     }
 
-/* ---------- */
-
+/* ----- Portfolio page ----- */
 #portfolio {
+    overflow-y: auto;
     overflow-x: scroll;
     scroll-snap-type: x proximity;
     margin-right: 5rem;
 }
 
-#portfolio h2 {
+#portfolio .h2 {
+    margin: 0 -3rem;
+    height: 100vh;
     scroll-snap-align: center;
 }
 
+i.material-icons {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
 figure {
-    width: auto;
     scrollbar-width: 0;
-    margin: 4rem;
-    
+    max-height: auto;
+    margin: 3rem;
+    align-self: center;
 }
 
 figure::-webkit-scrollbar {
@@ -72,11 +84,9 @@ figure::-webkit-scrollbar {
 }
 
 figure > img {
-    scroll-snap-align: center;
+    align-self: center;
     max-width: 90vw;
+    scroll-snap-align: center;
     margin: .5rem;
-}
-
-figcaption {
-    max-height: 5vh;
+    border-radius: .25rem .25rem .25rem .25rem;
 }
