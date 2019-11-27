@@ -54,7 +54,6 @@ h5 {
 
 /* ----- Portfolio page ----- */
 #portfolio {
-    overflow-y: hidden;
     overflow-x: auto;
     flex-wrap: nowrap;
     height: 100vh;
