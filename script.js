@@ -61,6 +61,7 @@ function headingHoverListener(event) {
     event.target.onmouseout = function () {
         this.classList.toggle('shadow-border')
     };
+
     event.preventDefault();
 }
 
@@ -96,11 +97,11 @@ function clickResumeLinksListener(event) {
  * @param {WheelEvent} event 
  */
 function scrollListener(event) {
-    let maxScrollDown = -(event.view.innerHeight / 2)
+    let maxScrollDown = -(event.view.innerHeight / 2);
     let maxScrollUp = event.view.innerHeight / 2
     const elements = document.querySelectorAll('.content');
 
-    if ('321' <= window.innerWidth) {
+    if (321 <= window.innerWidth) {
         for (const element of elements) {
             let viewportPosition = element.getBoundingClientRect();
             if ($(element).is(':visible')) {
@@ -110,33 +111,41 @@ function scrollListener(event) {
             }
         }
     }
+
+    event.preventDefault();
 }
 
 /** Fade in portfolio content on click and keep portfolio title centered on fade in. */
 function portfolioLinkListener() {
     const portfolioTitle = document.querySelector('.portfolio-link');
 
-    if ('321' <= window.innerWidth) {
+    if (321 <= window.innerWidth) {
         $('#portfolio .content').fadeIn(1000);
         portfolioTitle.scrollIntoView({ block: 'center', inline: 'center' });
     }
+
+    event.preventDefault();
 }
 
 /* Always scroll portfolio title into view on viewport resize
     Always show portfolio content on mobile view */
 function checkViewportSize() {
     if (window.innerWidth <= 320) {
-        $('#portfolio > .content').show()
+        $('#portfolio > .content').show();
     }
 
     resizePortfolioAndScrollBy();
+
+    event.preventDefault();
 }
 /* Resize portfolio page and scroll title to horizontal center of parent */
 function resizePortfolioAndScrollBy() {
-    const portfolioLinkElement = document.querySelector('#portfolio div.h2')
-    const portfolioContainer = document.querySelector('#portfolio')
-    let viewportPosition = portfolioLinkElement.getBoundingClientRect()
+    const portfolioLinkElement = document.querySelector('#portfolio div.h2');
+    const portfolioContainer = document.querySelector('#portfolio');
+    let viewportPosition = portfolioLinkElement.getBoundingClientRect();
 
     portfolioContainer.scrollBy(viewportPosition.x, 0);
+
+    event.preventDefault();
 }
 

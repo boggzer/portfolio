@@ -55,7 +55,6 @@ h5 {
 /* ----- Portfolio page ----- */
 #portfolio {
     overflow-x: auto;
-    flex-wrap: nowrap;
     height: 100vh;
     width: auto;
     scroll-snap-type: x proximity;
