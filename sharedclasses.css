@@ -5,14 +5,13 @@
 
 .shadow-border {
     transition: .2s ease-in-out box-shadow;
-    box-shadow: 0 .2rem 0 0 black;
+    box-shadow: 0 .25rem 0 black;
 }
 
-/* 
 .content-border {
-    box-shadow: inset .5rem -.5rem 0 0 rgb(238, 235, 230);
-} 
-*/
+    box-shadow: inset .7rem -.7rem 0 0 rgb(238, 235, 230);
+
+}
 
 .flex { display: flex; }
 
@@ -24,12 +23,10 @@
 
 .row { flex-direction: row; }
 
-.center-x { justify-content: center; }
+.center-y { justify-content: center; }
 
-.center-y { align-items: center; }
+.center-x { align-items: center; }
 
 .evenly { justify-content: space-evenly; }
 
 .wrap { flex-wrap: wrap; }
-
-.nowrap { flex-wrap: nowrap; }
