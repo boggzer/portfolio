@@ -22,7 +22,6 @@ html, body {
 }
 
 .scroll-child {
-    
     height: 100vh;
     scroll-snap-align: start;
 }
@@ -38,10 +37,10 @@ header {
     width: 90vw;
 }
 
-        text {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
+    text {
+        font-size: 1.8rem;
+        font-weight: 700;
+    }
 
 li {
     font-size: 1rem;

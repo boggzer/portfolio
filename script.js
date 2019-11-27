@@ -9,11 +9,13 @@ function addEventListeners() {
 
     const resumeLinks = document.querySelectorAll('.resume-links');
     for (const link of resumeLinks) {
+        link.addEventListener('touchmove', headingHoverListener);
         link.addEventListener('mouseover', headingHoverListener);
         link.addEventListener('click', clickResumeLinksListener);
     }
     const contactLinks = document.querySelectorAll('#contact a');
     for (const link of contactLinks) {
+        link.addEventListener('touchmove', headingHoverListener);
         link.addEventListener('mouseover', headingHoverListener);
         link.addEventListener('click', clickResumeLinksListener);
     }
@@ -59,6 +61,7 @@ function headingHoverListener(event) {
     event.target.onmouseout = function () {
         this.classList.toggle('shadow-border')
     };
+    event.preventDefault();
 }
 
 /**
@@ -84,10 +87,12 @@ function clickResumeLinksListener(event) {
         $('.resume-content' + event.target.getAttribute('target')).fadeIn(1000);
 
     }, delay);
+
+    event.preventDefault();
 }
 
 /**
- * Make visible content fade out on scroll condition.
+ * Make visible content fade out on element DOM rect
  * @param {WheelEvent} event 
  */
 function scrollListener(event) {
@@ -107,12 +112,11 @@ function scrollListener(event) {
     }
 }
 
-/** Fade in portfolio content and keep portfolio title centered. */
+/** Fade in portfolio content on click and keep portfolio title centered on fade in. */
 function portfolioLinkListener() {
     const portfolioTitle = document.querySelector('.portfolio-link');
 
     if ('321' <= window.innerWidth) {
-        console.log('hi');
         $('#portfolio .content').fadeIn(1000);
         portfolioTitle.scrollIntoView({ block: 'center', inline: 'center' });
     }
