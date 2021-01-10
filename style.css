@@ -11,7 +11,7 @@ html, body {
     font-family: 'Old Standard TT', 'Times', serif;
     font-weight: 400;
     color: rgb(31, 27, 25);
-    background: url(http://api.thumbr.it/whitenoise-361x370.png?background=f0d8d8ff&noise=9c9403&density=86&opacity=16) repeat;
+    background: url("http://api.thumbr.it/whitenoise-361x370.png?background=f0d8d8ff&noise=9c9403&density=86&opacity=16") repeat;
 } 
 
 .scroll-parent {
@@ -37,20 +37,30 @@ header {
     width: 90vw;
 }
 
-    text {
-        font-size: 1.8rem;
-        font-weight: 700;
-    }
+text {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
 
 li {
     font-size: 1rem;
     list-style: none;
 }
 
-a {
+.link {
+    padding: .5rem;
+}
+
+.link:visited, .link:hover, .link:focus, .link, a {
+    font-family: 'Josefin-Sans', 'Helvetica', sans-serif;
     color: rgb(24, 23, 23);
-    text-decoration: none;
+    font-weight: bold;
     cursor: pointer;
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
 }
 
 #contact {
