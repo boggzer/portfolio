@@ -1,4 +1,0 @@
-ISSUES
-
--- (#portfolio h2) Portfolio link moves top left by 1px on click
--- (#resume-content1) skills content is not centered after skills link is clicked

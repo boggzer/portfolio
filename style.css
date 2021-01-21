@@ -11,7 +11,7 @@ html, body {
     font-family: 'Old Standard TT', 'Times', serif;
     font-weight: 400;
     color: rgb(31, 27, 25);
-    background: url("/images/noise-bg.jpg") repeat;
+    background: url("./images/noise-bg.png") repeat;
 } 
 
 .scroll-parent {
