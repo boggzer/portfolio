@@ -11,7 +11,7 @@ html, body {
     font-family: 'Old Standard TT', 'Times', serif;
     font-weight: 400;
     color: rgb(31, 27, 25);
-    background: url("http://api.thumbr.it/whitenoise-361x370.png?background=f0d8d8ff&noise=9c9403&density=86&opacity=16") repeat;
+    background: url("/images/noise-bg.jpg") repeat;
 } 
 
 .scroll-parent {
