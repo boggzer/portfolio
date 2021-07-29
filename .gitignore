@@ -7,4 +7,3 @@ public
 src-old
 yarn.lock
 gatsby-README.md
-static/**/*
