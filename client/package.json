@@ -1,0 +1,51 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "portfolio",
+  "author": "Jonathan G. Bogg",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "concurrently --names \"gatsby,watch\" -c \"#663399.bgWhite,#3178c6.bgWhite\" \"gatsby develop\" \"npm:watch\"",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "watch": "concurrently \"npm:watch-*\"",
+    "watch-ts": "tsc --watch",
+    "watch-prettier": "onchange \"**/*.js\" \"**/*.ts\" \"**/*.tsx\" -- prettier --write {{changed}}"
+  },
+  "dependencies": {
+    "concurrently": "^6.2.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "gatsby": "^3.6.2",
+    "gatsby-plugin-image": "^1.7.1",
+    "gatsby-plugin-manifest": "^3.7.1",
+    "gatsby-plugin-prettier-eslint": "^1.0.6",
+    "gatsby-plugin-react-helmet": "^4.7.1",
+    "gatsby-plugin-remove-dependency-transpilation": "^1.0.0",
+    "gatsby-plugin-sass": "^4.8.0",
+    "gatsby-plugin-ts": "^3.0.0",
+    "gatsby-source-sanity": "^7.0.7",
+    "onchange": "^7.1.0",
+    "prettier": "^2.3.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0",
+    "sass": "^1.35.1"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "@typescript-eslint/parser": "^4.28.1",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.24.0",
+    "typescript": "^4.3.5"
+  },
+  "browserslist": [
+    "> 0.1%",
+    "last 10 versions"
+  ]
+}

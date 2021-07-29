@@ -1,0 +1,21 @@
+{
+  "name": "cv",
+  "version": "1.0.0",
+  "description": "Ett första CV med interaktiva element. Mitt mål var att vara kortfattad och använda så lite men tydlig text som möjligt. Projektet innehåller en välkomstsida (\"sida ett\"), portfolio (\"sida två\"), resumé (\"sida tre\") och kontaktuppgifter. Tanken med portfolion är att den ska innehålla skärmavbilder och dokumentationer av både webdesign- och konstprojekt. Resumén innehåller förmågor och utbildning.",
+  "main": "script.js",
+  "scripts": {
+    "dev": "cd client && npm run develop",
+    "gatsby-dev": "cd client && npm run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boggzer/cv.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/boggzer/cv/issues"
+  },
+  "homepage": "https://github.com/boggzer/cv#readme"
+}
