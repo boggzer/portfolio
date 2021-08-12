@@ -1,5 +1,5 @@
 interface MainProps {
-  children: React.ReactChildren;
+  children: React.ReactNode;
 }
 
 export default MainProps;

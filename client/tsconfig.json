@@ -18,5 +18,5 @@
     "strictNullChecks": true,
     "target": "ESNext"
   },
-  "exclude": ["node_modules", "dist", "public", ".cache", "graphql-types.ts", "src/**/*.js"]
+  "exclude": ["node_modules", "dist", "public", ".cache", "graphql-types.ts"]
 }

@@ -8,7 +8,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:prettier/recommended',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -25,8 +25,11 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint'],
   rules: {
-    semi: 2,
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'prefer-const': [
+      'warn',
+      { destructuring: 'any', ignoreReadBeforeAssign: false },
+    ],
   },
   overrides: [
     {
