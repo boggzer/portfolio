@@ -1,5 +1,8 @@
 /* Variables */
 $ratio: 1.618;
+$one-fifth: 20%;
+$two-fifth: 40%;
+$one-half: 50%;
 
 /* Palette */
 $black: #000000;
@@ -7,6 +10,11 @@ $dark-grey: #363537;
 $light-grey: #f1f1f1;
 $pink: #e56399;
 $violet: #a37fdf;
+$main-background: #ffffff;
+
+:root {
+  --pink: #e56399;
+}
 
 /* Defaults */
 $font-size: 16px;
@@ -148,6 +156,10 @@ a {
       display: inline-flex;
       justify-content: flex-start;
     }
+    &-stretch {
+      display: inline-flex;
+      align-items: stretch;
+    }
   }
 
   &.grid--column {
@@ -169,20 +181,27 @@ a {
     flex-wrap: wrap;
   }
 
-  .grid__cell--1\/1 {
-    flex: 0 1 100%;
-  }
-
-  .grid__cell--1\/2 {
-    flex: 0 1 49.999%;
-  }
-
-  .grid__cell--1\/3 {
-    flex: 0 1 33.333%;
-  }
-
-  .grid__cell--1\/4 {
-    flex: 0 1 24.999%;
+  .grid__cell- {
+    &-1\/1 {
+      flex: 0 1 100%;
+      max-width: 100%;
+    }
+    &-1\/2 {
+      flex: 0 1 49.999%;
+      max-width: 49.999%;
+    }
+    &-1\/3 {
+      flex: 0 1 33.333%;
+      max-width: 33.333%;
+    }
+    &-2\/3 {
+      flex: 0 1 66.666%;
+      max-width: 66.666%;
+    }
+    &-1\/4 {
+      flex: 0 1 24.999%;
+      max-width: 24.999%;
+    }
   }
 }
 
@@ -224,21 +243,52 @@ a {
 
 /****************
 
- INDEX NAV
+ INDEX
 
  ****************/
+.indexpage__name,
+.indexpage__title {
+  background-color: $main-background;
+  z-index: 1;
+}
+.indexpage__title {
+  z-index: 2;
+}
+.indexpage__name {
+  word-spacing: 9999999px; // Fallback
+  word-spacing: 100vw;
 
-.index-nav {
+  & .h1 {
+    font-size: round($ratio * $font-size);
+    line-height: 1.28;
+    padding: round($ratio * 15px);
+  }
+}
+
+.indexpage__svgcircle {
+  position: absolute;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.indexpage__nav,
+.indexpage__name-title {
   display: inline-flex;
-  align-items: flex-end;
+  align-items: stretch;
+  transform: translateY($one-half);
   height: 40%;
 
-  &-inner {
-    height: inherit;
+  & > * {
     flex-basis: 100%;
   }
+}
 
-  &-link {
-    height: 10%;
+.indexpage__nav-link {
+  height: $one-fifth;
+  font-size: round($ratio * $font-size);
+  padding: round($ratio * 15px);
+
+  &:first-child {
+    background-color: $pink;
   }
 }

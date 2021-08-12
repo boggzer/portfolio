@@ -1,7 +1,12 @@
 import React from 'react';
 import { TextProps } from '../types';
 
-const Text = ({ children, type, classes, ...rest }: TextProps): React.ReactElement => {
+const Text = ({
+  children,
+  type,
+  classes,
+  ...rest
+}: TextProps): React.ReactElement => {
   const textType = {
     h1: 'h1',
     h2: 'h2',
@@ -12,7 +17,10 @@ const Text = ({ children, type, classes, ...rest }: TextProps): React.ReactEleme
     text: 'p',
   };
   return (
-    <div className={`${type ? textType[type] : 'p'} ${classes || null}`} {...rest}>
+    <div
+      className={`${type ? textType[type] : 'p'} ${classes || null}`}
+      {...rest}
+    >
       {children}
     </div>
   );
