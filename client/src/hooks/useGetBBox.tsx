@@ -3,7 +3,7 @@ import ReactDOMServer from 'react-dom/server';
 //https://stackoverflow.com/a/45465286
 const useGetBBox = (
   el: SVGSVGElement | React.ReactElement<SVGElement>,
-): any => {
+): React.ReactElement => {
   let tempSvg;
   const tempDiv = document.createElement('div');
   tempDiv.setAttribute(

@@ -26,6 +26,12 @@ module.exports = {
   plugins: ['react', '@typescript-eslint'],
   rules: {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-empty-interface': [
+      'error',
+      {
+        allowSingleExtends: true,
+      },
+    ],
     'prefer-const': [
       'warn',
       { destructuring: 'any', ignoreReadBeforeAssign: false },

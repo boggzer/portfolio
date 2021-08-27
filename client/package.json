@@ -13,6 +13,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "dev-two": "gatsby develop",
     "watch": "concurrently \"npm:watch-*\"",
     "watch-ts": "tsc --watch",
