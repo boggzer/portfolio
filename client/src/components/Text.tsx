@@ -6,7 +6,6 @@ const Text: React.FunctionComponent<
 > = ({
   children,
   classes = '',
-  innerClasses = '',
   type = 'text',
   ...rest
 }): React.ReactElement => {

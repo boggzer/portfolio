@@ -1,3 +1,4 @@
+import React from 'react';
 import { Wrapper } from './src/components';
 import { RootContextProvider } from './src/context';
 
