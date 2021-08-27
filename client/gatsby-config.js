@@ -1,15 +1,20 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
+  pathPrefix: '/portfolio',
   siteMetadata: {
     title: 'portfolio',
   },
   plugins: [
-    {
-      resolve: 'gatsby-source-sanity',
-      options: {
-        projectId: 'zfl5tz2d',
-        dataset: 'production',
-      },
-    },
+    // {
+    //   resolve: 'gatsby-source-sanity',
+    //   options: {
+    //     projectId: 'zfl5tz2d',
+    //     dataset: 'production',
+    //   },
+    // },
     'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     {
@@ -52,8 +57,12 @@ module.exports = {
       resolve: 'gatsby-plugin-graphql-codegen',
       options: {
         codegen: false,
+        codegenDelay: 60000,
       },
     },
     'gatsby-plugin-remove-dependency-transpilation',
+    {
+      resolve: 'gatsby-plugin-no-sourcemaps',
+    },
   ],
 };

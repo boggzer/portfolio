@@ -7,3 +7,6 @@ public
 src-old
 yarn.lock
 gatsby-README.md
+.eslintcache
+*.tsbuildinfo
+.env*

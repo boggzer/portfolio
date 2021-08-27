@@ -30,6 +30,7 @@ module.exports = {
       'warn',
       { destructuring: 'any', ignoreReadBeforeAssign: false },
     ],
+    'react/prop-types': 'off',
   },
   overrides: [
     {
