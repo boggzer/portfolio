@@ -1,8 +1,8 @@
 import React from 'react';
-import { SectionProps } from '../types';
 
-const Section = ({ children }: SectionProps): JSX.Element => (
-  <div>{children}</div>
-);
+const Section: React.FunctionComponent<React.HTMLProps<HTMLDivElement>> = ({
+  children,
+  ...rest
+}): JSX.Element => <div {...rest}>{children}</div>;
 
 export default Section;

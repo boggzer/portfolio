@@ -1,7 +1,12 @@
 import React from 'react';
 import { ImageProps } from '../types';
 
-const Image = ({ src, alt, classes, ...rest }: ImageProps): JSX.Element =>
+const Image: React.FunctionComponent<ImageProps> = ({
+  src,
+  alt,
+  classes,
+  ...rest
+}): JSX.Element =>
   src ? (
     <img
       className={`${classes || ''} Image`}

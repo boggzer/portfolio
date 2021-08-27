@@ -1,7 +1,7 @@
 interface ImageProps {
-  src: string;
-  alt: string;
-  classes?: string;
+  readonly src: string;
+  readonly alt: string;
+  readonly classes?: string;
 }
 
 export default ImageProps;

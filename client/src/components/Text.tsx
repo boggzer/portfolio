@@ -1,12 +1,15 @@
 import React from 'react';
 import { TextProps } from '../types';
 
-const Text = ({
+const Text: React.FunctionComponent<
+  TextProps & Omit<React.HTMLAttributes<HTMLHeadingElement>, 'className'>
+> = ({
   children,
-  type,
-  classes,
+  classes = '',
+  innerClasses = '',
+  type = 'text',
   ...rest
-}: TextProps): React.ReactElement => {
+}): React.ReactElement => {
   const textType = {
     h1: 'h1',
     h2: 'h2',
@@ -16,12 +19,10 @@ const Text = ({
     h6: 'h6',
     text: 'p',
   };
+  const Tag = textType[type] as keyof JSX.IntrinsicElements;
   return (
-    <div
-      className={`${type ? textType[type] : 'p'} ${classes || null}`}
-      {...rest}
-    >
-      {children}
+    <div className={`text__container text__${type}`} {...rest}>
+      <Tag className={classes}>{children}</Tag>
     </div>
   );
 };

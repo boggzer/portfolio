@@ -3,7 +3,7 @@ import { SvgNoiseProps } from '../../types';
 import { uniqueId } from 'lodash';
 import { useState } from 'react';
 
-const SvgNoise = ({
+const SvgNoise: React.FunctionComponent<SvgNoiseProps> = ({
   backgroundColor = 'rgba(0,0,0,0)',
   clipPathHeight = '100%',
   clipPathWidth = '100%',
@@ -15,7 +15,7 @@ const SvgNoise = ({
   preserveAspectRatio = 'xMaxYMin slice',
   viewBox = '0 0 0 0',
   ...rest
-}: SvgNoiseProps): React.ReactElement<SVGElement> => {
+}): React.ReactElement<SVGElement> => {
   const [vB, setVB] = useState(viewBox);
   const [dimensions, setDimensions] = useState<
     Record<'height' | 'width', string | number>
@@ -60,7 +60,6 @@ const SvgNoise = ({
       viewBox={vB}
       {...rest}
     >
-      {console.log(containerWidth || dimensions.width)}
       <defs>
         <filter id={`${id}__filter`} x='0%' y='0%'>
           <feTurbulence
