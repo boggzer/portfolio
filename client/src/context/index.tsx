@@ -1,3 +1,3 @@
-import RootContextProvider from './RootContext';
+import { RootContextProvider, useRootContext } from './RootContext';
 
-export { RootContextProvider };
+export { RootContextProvider, useRootContext };

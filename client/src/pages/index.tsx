@@ -2,88 +2,106 @@ import React from 'react';
 import '../styles/index.scss';
 import { Section, ComingSoon } from '../components';
 import { ratio } from '../variables';
+import { useRootContext } from '../context';
+import gsap from 'gsap';
 // import SvgNoise from '../components/effects/SvgNoise';
 // import { useSvgToUri } from '../hooks';
 
 const IndexPage: React.FunctionComponent = (): React.ReactElement => {
-  const [enableAnimation, setEnableAnimation] = React.useState(true);
+  // const [_enableAnimation, setEnableAnimation] = React.useState<boolean>(true);
+  const { browser } = useRootContext();
+  const svgBackgroundRef = React.useRef<SVGFETurbulenceElement | null>(null);
+  const tween = React.useRef<gsap.core.Tween>();
+
+  const handleClick = () => {
+    tween.current?.isActive() ? tween.current?.pause() : tween.current?.play();
+  };
+
+  const [conditionalAttrs, setConditionalAttrs] = React.useState<
+    { onClick: typeof handleClick } | Record<string, never>
+  >({ onClick: handleClick });
+
+  React.useEffect(() => {
+    if ('prefersReducedMotion' in browser) {
+      if (browser.prefersReducedMotion) {
+        setConditionalAttrs({});
+      } else {
+        tween.current = gsap.to(svgBackgroundRef.current, {
+          attr: { seed: 1 },
+          duration: 0.4,
+          repeat: -1,
+          repeatDelay: 0,
+          yoyo: true,
+          ease: 'none',
+          paused: false,
+          snap: {
+            seed: 1,
+          },
+        });
+      }
+    }
+  }, [browser]);
 
   return (
     <>
-      <Section className='grid grid__cell grid__cell--1/1 grid--h-align-center grid--v-align-center'>
+      <Section className='grid grid__cell grid__cell--1/1 grid--h-align-center grid--v-align-center test'>
         <ComingSoon
           className='grid__cell grid--v-align-center'
-          textClasses='text__transform--low'
+          style={{ zIndex: 2 }}
+          textClasses='text__transform--low text__align--center'
           textStyle={{ marginTop: `-${Math.floor(ratio * 3 * 10)}%` }}
         />
-      </Section>
-      <div
-        onClick={() => setEnableAnimation((prevState) => !prevState)}
-        style={{
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          left: 0,
-          right: 0,
-          backfaceVisibility: 'hidden',
-          transform: 'translate3d(0, 0, 0)',
-          perspective: 1000,
-          transformOrigin: 'bottom right',
-          zIndex: -1,
-        }}
-      >
-        <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'>
-          <defs>
-            <radialGradient
-              id='grad2'
-              fx='10%'
-              fy='10%'
-              r='90%'
-              spreadMethod='pad'
-            >
-              <stop offset='50%' stopColor='#fff' stopOpacity={0} />
-              <stop offset='90%' stopColor='#000' stopOpacity={1} />
-            </radialGradient>
-            <filter id='displacementFilter2'>
-              <feOffset dx={-150} dy={-150} in='SourceGraphic' result='o' />
-              <feTurbulence
-                in='o'
-                type='turbulence'
-                numOctaves={1}
-                baseFrequency={0.5}
-                result='turb'
-                seed={5}
+        <div
+          className='comingsoon-bg'
+          style={{ zIndex: 1 }}
+          {...conditionalAttrs}
+        >
+          <svg width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'>
+            <defs>
+              <radialGradient
+                id='grad2'
+                fx='10%'
+                fy='10%'
+                r='90%'
+                spreadMethod='pad'
               >
-                <animate
-                  attributeName='seed'
-                  from={1}
-                  to={enableAnimation ? 4 : 1}
-                  dur='300ms'
-                  repeatCount='indefinite'
+                <stop offset='50%' stopColor='#fff' stopOpacity={0} />
+                <stop offset='90%' stopColor='#000' stopOpacity={1} />
+              </radialGradient>
+              <filter id='displacementFilter2'>
+                <feOffset dx={-150} dy={-150} in='SourceGraphic' result='o' />
+                <feTurbulence
+                  in='o'
+                  type='turbulence'
+                  numOctaves={1}
+                  baseFrequency={0.5}
+                  result='turb'
+                  seed={5}
+                  ref={svgBackgroundRef}
+                ></feTurbulence>
+                <feDisplacementMap
+                  in='o'
+                  in2='turb'
+                  scale={250}
+                  xChannelSelector='G'
+                  yChannelSelector='R'
+                  result='res'
                 />
-              </feTurbulence>
-              <feDisplacementMap
-                in='o'
-                in2='turb'
-                scale={250}
-                xChannelSelector='G'
-                yChannelSelector='R'
-                result='res'
+                <feGaussianBlur in='res' stdDeviation='.5' />
+              </filter>
+            </defs>
+            <g>
+              <rect
+                filter='url(#displacementFilter2)'
+                fill='url(#grad2)'
+                width='100%'
+                height='100%'
+                transform='scale(1.2)'
               />
-              <feGaussianBlur in='res' stdDeviation='.5' />
-            </filter>
-          </defs>
-          <g>
-            <rect
-              filter='url(#displacementFilter2)'
-              fill='url(#grad2)'
-              width='100%'
-              height='100%'
-              transform='scale(1.2)'
-            />
-          </g>
-        </svg>
-      </div>
+            </g>
+          </svg>
+        </div>
+      </Section>
     </>
   );
   /*

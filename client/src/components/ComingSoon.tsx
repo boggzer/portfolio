@@ -24,7 +24,7 @@ const ComingSoon: React.FunctionComponent<
             target='_blank'
             href='https://www.linkedin.com/in/jonathan-gegerfeldt-bogg/'
             style={{
-              transform: `translateX(-${Math.floor(ratio * 4)}px)`,
+              transform: `translateX(-${Math.floor(ratio * 2)}px)`,
             }}
             rel='noreferrer'
           >
@@ -58,7 +58,7 @@ const ComingSoon: React.FunctionComponent<
             target='_blank'
             href='mailto:jonathan.bogg@gmail.com'
             style={{
-              transform: `translateX(${Math.floor(ratio * 4)}px)`,
+              transform: `translateX(${Math.floor(ratio * 2)}px)`,
             }}
             rel='noreferrer'
           >

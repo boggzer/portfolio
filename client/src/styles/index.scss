@@ -206,6 +206,20 @@ main {
   }
 }
 
+.comingsoon-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  perspective: 1000;
+  transform-origin: bottom right;
+  z-index: -1;
+}
+
 p.small {
   font-size: ($font-size - 2);
 }
